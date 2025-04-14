@@ -1,20 +1,47 @@
 import { useState } from 'react';
+import CounterDisplay from './components/CounterDisplay.jsx';
 import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
+  const [name, setName] = useState('');
+  const [thankYouMessage, setThankYouMessage] = useState('');
 
   const increment = () => setCount(count + 1);
   const decrement = () => setCount(count > 0 ? count - 1 : 0);
   const reset = () => setCount(0);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (name.trimEnd()) {
+      setThankYouMessage(
+        `${name}, thanks for using the counter! Your current number is ${count}`
+      );
+    } else {
+      setThankYouMessage('');
+    }
+  };
+
   return (
-    <div class="card">
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
-      <button onClick={reset}>Reset</button>
-      <h1>{count}</h1>
-    </div>
+    <>
+      <div className="card">
+        <CounterDisplay count={count} />
+        <button onClick={increment}>Inrement</button>
+        <button onClick={decrement}>Decrement</button>
+        <button onClick={reset}>Reset</button>
+
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Enter your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <button type="submit">Submit name to see your counter</button>
+          <h1>{thankYouMessage}</h1>
+        </form>
+      </div>
+    </>
   );
 }
 
