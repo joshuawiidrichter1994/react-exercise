@@ -14,7 +14,9 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.trimEnd()) {
-      setThankYouMessage(`${name}, thanks for using the counter!`);
+      setThankYouMessage(
+        `${name}, thanks for using the counter!. Your current number is ${count}`
+      );
     } else {
       setThankYouMessage('');
     }
