@@ -5,13 +5,15 @@ import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
+  const increment = () => setCount((num) => num + 1);
+  const decrement = () => setCount((num) => num - 1);
 
   return (
     <>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        <button onClick={increment}>Inrement</button>
+        <button onClick={decrement}>Decrement</button>
+        <span>{count}</span>
       </div>
     </>
   );
