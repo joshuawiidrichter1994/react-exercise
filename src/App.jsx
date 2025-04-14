@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import CounterDisplay from './components/CounterDisplay.jsx';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
@@ -11,9 +12,9 @@ function App() {
   return (
     <>
       <div className="card">
+        <CounterDisplay count={count} />
         <button onClick={increment}>Inrement</button>
         <button onClick={decrement}>Decrement</button>
-        <span>{count}</span>
       </div>
     </>
   );
