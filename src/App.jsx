@@ -15,7 +15,7 @@ function App() {
     e.preventDefault();
     if (name.trimEnd()) {
       setThankYouMessage(
-        `${name}, thanks for using the counter!. Your current number is ${count}`
+        `${name}, thanks for using the counter! Your current number is ${count}`
       );
     } else {
       setThankYouMessage('');
@@ -37,7 +37,7 @@ function App() {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <button type="submit">Submit name</button>
+          <button type="submit">Submit name to see your counter</button>
           <h1>{thankYouMessage}</h1>
         </form>
       </div>
